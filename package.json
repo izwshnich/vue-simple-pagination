@@ -1,6 +1,6 @@
 {
-  "name": "vue-simple-pagination",
-  "version": "1.0.0",
+  "name": "vue-simple-pagination-sfc",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/simple-pagination.ssr.js",
   "browser": "dist/simple-pagination.esm.js",
@@ -18,7 +18,8 @@
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
-    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
+    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife",
+    "prepublish": "npm run build"
   },
   "dependencies": {},
   "devDependencies": {
