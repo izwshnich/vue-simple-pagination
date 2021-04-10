@@ -9,14 +9,7 @@ export default defineComponent({
   },
   setup() {
     const current = ref<number>(0)
-    const items = ref([
-      { text: 'dummy' }, { text: 'dummy2' }, { text: 'dummy3' }, { text: 'dummy4' }, { text: 'dummy5' },
-      { text: 'dummy' }, { text: 'dummy2' }, { text: 'dummy3' }, { text: 'dummy4' }, { text: 'dummy5' },
-      { text: 'dummy' }, { text: 'dummy2' }, { text: 'dummy3' }, { text: 'dummy4' }, { text: 'dummy5' },
-      { text: 'dummy' }, { text: 'dummy2' }, { text: 'dummy3' }, { text: 'dummy4' }, { text: 'dummy5' },
-      { text: 'dummy' }, { text: 'dummy2' }, { text: 'dummy3' }, { text: 'dummy4' }, { text: 'dummy5' },
-      { text: 'dummy' }, { text: 'dummy2' }, { text: 'dummy3' }, { text: 'dummy4' }, { text: 'dummy5' },
-    ])
+    const totalLength = ref<number>(50)
 
     const handleChange = (page: number) => {
       current.value = page
@@ -24,7 +17,7 @@ export default defineComponent({
 
     return {
       current,
-      items,
+      totalLength,
       handleChange,
     }
   }
@@ -33,6 +26,6 @@ export default defineComponent({
 
 <template>
   <div id="app">
-    <simple-pagination :items="items" :current-page="current" @change-page="handleChange" />
+    <simple-pagination :length="totalLength" :current-page="current" @change-page="handleChange" />
   </div>
 </template>

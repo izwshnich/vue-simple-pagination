@@ -4,9 +4,9 @@ import { defineComponent } from 'vue';
 export default /*#__PURE__*/defineComponent({
   name: 'SimplePagination', // vue component name
   props: {
-    items: {
-      type: Array,
-      default: [],
+    length: {
+      type: Number,
+      default: 0,
     },
     currentPage: {
       type: Number,
@@ -48,12 +48,12 @@ export default /*#__PURE__*/defineComponent({
       return [...Array(this.rangeEnd - this.rangeStart + 1)].map((_, i) => this.rangeStart + i)
     },
     totalPages: function(): number {
-      return Math.ceil(this.items.length / this.pageOffset) - 1
+      return Math.ceil(this.length / this.pageOffset) - 1
     },
   },
   methods: {
     hasPager: function(): boolean {
-      return this.items.length > this.pageOffset
+      return this.length > this.pageOffset
     },
     hasFirst: function(): boolean {
       return this.rangeStart >= 1
